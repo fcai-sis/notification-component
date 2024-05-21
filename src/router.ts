@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import exampleRoutes from "./features/example/example.routes";
+import exampleRoutes from "./features/notification/mail.routes";
 
 const router: Router = Router();
 
