@@ -3,6 +3,8 @@ export const env = {
   NODE_ENV: process.env.NODE_ENV,
   LOGS_PATH: process.env.LOGS_PATH,
   MONGO_URI: process.env.MONGO_URI,
+  MAILGUN_API_KEY: process.env.MAILGUN_API_KEY,
+  MAILGUN_DOMAIN: process.env.MAILGUN_DOMAIN,
 };
 
 export const isDev = env.NODE_ENV === "development";
