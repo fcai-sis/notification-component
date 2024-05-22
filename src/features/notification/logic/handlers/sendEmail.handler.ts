@@ -34,12 +34,18 @@ const handler = async (req: HandlerRequest, res: Response) => {
   try {
     // Send email using Mailgun
     mg.messages.create(DOMAIN, data).then((msg) => {
+      console.log(msg);
       res.status(200).json({
-        msg,
+        message: "Email sent successfully",
       });
     });
-  } catch (error) {
-    res.status(401).json("Error sending email");
+  } catch (error: any) {
+    res.status(401).json({
+      error: {
+        message: "Failed to send email",
+        reason: error.message,
+      },
+    });
   }
 };
 const sendEmailHandler = handler;
