@@ -1,12 +1,13 @@
+import env from "../../../../env";
 import { Request, Response } from "express";
 import formData from "form-data";
 import Mailgun from "mailgun.js";
 const mailgun = new Mailgun(formData);
 const mg = mailgun.client({
   username: "api",
-  key: process.env.MAILGUN_API_KEY || "damn-thats-crazy",
+  key: env.MAILGUN_API_KEY!,
 });
-const DOMAIN = process.env.MAILGUN_DOMAIN || "typescript shut up"; // STUPID NEED TO COPY FROM "How would you like to send emails from your domain?"
+const DOMAIN = env.MAILGUN_DOMAIN!; // STUPID NEED TO COPY FROM "How would you like to send emails from your domain?"
 
 type HandlerRequest = Request<
   {},
