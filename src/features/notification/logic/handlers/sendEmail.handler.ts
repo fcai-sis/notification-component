@@ -42,10 +42,12 @@ const handler = async (req: HandlerRequest, res: Response) => {
     });
   } catch (error: any) {
     res.status(401).json({
-      error: {
-        message: "Failed to send email",
-        reason: error.message,
-      },
+      errors: [
+        {
+          message: "Failed to send email",
+          reason: error.message,
+        },
+      ],
     });
   }
 };
