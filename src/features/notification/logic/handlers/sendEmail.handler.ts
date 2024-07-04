@@ -7,7 +7,7 @@ const mg = mailgun.client({
   username: "api",
   key: env.MAILGUN_API_KEY!,
 });
-const DOMAIN = env.MAILGUN_DOMAIN!; // STUPID NEED TO COPY FROM "How would you like to send emails from your domain?"
+const DOMAIN = env.MAILGUN_DOMAIN!;
 
 type HandlerRequest = Request<
   {},
@@ -26,7 +26,7 @@ const handler = async (req: HandlerRequest, res: Response) => {
 
   // Prepare email data
   const data = {
-    from: `lol <postmaster@${DOMAIN}>`, // IDIOT NEEDS TO HAVE POSTMASTER BEFORE MAIL
+    from: `lol <postmaster@${DOMAIN}>`,
     to: ["youssefgalalnazem@gmail.com"],
     subject: subject,
     text: text,
